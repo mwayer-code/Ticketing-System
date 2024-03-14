@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mwaye\\OneDrive\\Documents\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj": {}
+    "C:\\Users\\mwaye\\OneDrive\\Documents\\aWCTC\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mwaye\\OneDrive\\Documents\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj": {
+    "C:\\Users\\mwaye\\OneDrive\\Documents\\aWCTC\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mwaye\\OneDrive\\Documents\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj",
+        "projectUniqueName": "C:\\Users\\mwaye\\OneDrive\\Documents\\aWCTC\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj",
         "projectName": "Ticketing System",
-        "projectPath": "C:\\Users\\mwaye\\OneDrive\\Documents\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj",
+        "projectPath": "C:\\Users\\mwaye\\OneDrive\\Documents\\aWCTC\\Dotnet and databasing\\Ticketing System\\Ticketing System.csproj",
         "packagesPath": "C:\\Users\\mwaye\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mwaye\\OneDrive\\Documents\\Dotnet and databasing\\Ticketing System\\obj\\",
+        "outputPath": "C:\\Users\\mwaye\\OneDrive\\Documents\\aWCTC\\Dotnet and databasing\\Ticketing System\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mwaye\\AppData\\Roaming\\NuGet\\NuGet.Config"

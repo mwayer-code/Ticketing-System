@@ -17,11 +17,9 @@ public class TicketManager {
         }
         return tickets;
     }
-    public void WriteTickets(List<Ticket> tickets) {
-        StreamWriter sw = new StreamWriter(file);
-        foreach (Ticket t in tickets) {
-            sw.WriteLine(t);
-        }
+    public void WriteTickets(Ticket t) {
+        StreamWriter sw = new StreamWriter(file, true);
+        sw.WriteLine(t);
         sw.Close();
     }
 

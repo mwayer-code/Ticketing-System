@@ -10,18 +10,12 @@ do
 
     if (choice == "1")
     {
-        if (File.Exists(file))
-        {
-            StreamReader sr = new StreamReader(file);
-            while (!sr.EndOfStream){
-                string line = sr.ReadLine();
-
-                string[] arr = line.Split(',');
-
-                Console.WriteLine("TicketID: {0}, Summary: {1}, Status: {2}, Priority: {3}, Submitter: {4}, Assigned: {5}, Watching: {6}", arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6]);
+       TicketManager tm = new TicketManager("ticket.txt");
+         List<Ticket> tickets = tm.ReadTickets();
+            foreach (Ticket t in tickets)
+            {
+                Console.WriteLine(t);
             }
-            sr.Close();
-        }
     }
     else if (choice == "2")
     {

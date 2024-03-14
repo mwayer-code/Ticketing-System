@@ -19,7 +19,6 @@ do
     }
     else if (choice == "2")
     {
-        StreamWriter sw = new StreamWriter(file);
         for (int i = 0; i < 1; i++)
         {
             Console.WriteLine("Create a new Ticket File (Y/N)?");
@@ -42,8 +41,10 @@ do
             Console.WriteLine("Enter ticket Watching: ");
             string watching = Console.ReadLine();
 
-            sw.WriteLine("{0},{1},{2},{3},{4},{5},{6}", ticketID, summary, status, priority, submitter, assigned, watching);
+            TicketManager manager = new TicketManager("ticket.txt");
+            Ticket t = new Ticket(ticketID, summary, status, priority, submitter, assigned, watching);
+            manager.WriteTickets(t);
         }
-        sw.Close();   
+
     }
 } while (choice == "1" || choice == "2");

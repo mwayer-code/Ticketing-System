@@ -1,5 +1,4 @@
-﻿string file = "ticket.txt";
-string choice;
+﻿string choice;
 do
 {
     Console.WriteLine("1. Read data from ticket file.");
@@ -10,7 +9,7 @@ do
 
     if (choice == "1")
     {
-       TicketManager tm = new TicketManager("ticket.txt");
+       TicketManager tm = new TicketManager("ticket.csv");
          List<Ticket> tickets = tm.ReadTickets();
             foreach (Ticket t in tickets)
             {
@@ -41,7 +40,7 @@ do
             Console.WriteLine("Enter ticket Watching: ");
             string watching = Console.ReadLine();
 
-            TicketManager manager = new TicketManager("ticket.txt");
+            TicketManager manager = new TicketManager("ticket.csv");
             Ticket t = new Ticket(ticketID, summary, status, priority, submitter, assigned, watching);
             manager.WriteTickets(t);
         }

@@ -9,12 +9,30 @@ do
 
     if (choice == "1")
     {
-       TicketManager tm = new TicketManager("ticket.csv");
-         List<Ticket> tickets = tm.ReadTickets();
-            foreach (Ticket t in tickets)
-            {
-                Console.WriteLine(t);
-            }
+      Console.WriteLine("Select file to read (1: Bugs/Defects, 2: Enhancements, 3: Tasks): ");
+      string ticketType = Console.ReadLine();
+      string fileName;
+        switch (ticketType)
+        {
+            case "1":
+                fileName = "ticket.csv";
+                break;
+            case "2":
+                fileName = "Enhancements.csv";
+                break;
+            case "3":
+                fileName = "Tasks.csv";
+                break;
+            default:
+                Console.WriteLine("Invalid choice.");
+                continue;
+        }
+        TicketManager manager = new TicketManager(fileName);
+        List<Ticket> tickets = manager.ReadTickets();
+        foreach (Ticket t in tickets)
+        {
+            Console.WriteLine(t);
+        }
     }
     else if (choice == "2")
     {

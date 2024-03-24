@@ -40,9 +40,45 @@ do
             Console.WriteLine("Enter ticket Watching: ");
             string watching = Console.ReadLine();
 
-            TicketManager manager = new TicketManager("ticket.csv");
-            Ticket t = new Ticket(ticketID, summary, status, priority, submitter, assigned, watching);
-            manager.WriteTickets(t);
+            Console.WriteLine("Enter ticket type (1: Bug/Defect, 2: Enhancement, 3: Task): ");
+            string type = Console.ReadLine();
+
+            Ticket t;
+            TicketManager manager;
+            
+            switch (type)
+            {
+                case "1":
+                    Console.WriteLine("Enter ticket Severity: ");
+                    string severity = Console.ReadLine();
+                    t = new BugDefect(ticketID, summary, status, priority, submitter, assigned, watching, severity);
+                    manager = new TicketManager("ticket.csv");
+                    manager.WriteTickets(t);
+                    break;
+                case "2":
+                    Console.WriteLine("Enter ticket Software: ");
+                    string software = Console.ReadLine();
+                    Console.WriteLine("Enter ticket Cost: ");
+                    double cost = double.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter ticket Reason: ");
+                    string reason = Console.ReadLine();
+                    Console.WriteLine("Enter ticket Estimate: ");
+                    double estimate = double.Parse(Console.ReadLine());
+                    t = new Enhancement(ticketID, summary, status, priority, submitter, assigned, watching, software, cost, reason, estimate);
+                    manager = new TicketManager("Enhancements.csv");
+                    manager.WriteTickets(t);
+                    break;
+                case "3":
+                    Console.WriteLine("Enter ticket Project Name: ");
+                    string projectName = Console.ReadLine();
+                    Console.WriteLine("Enter ticket Due Date: ");
+                    string dueDate = Console.ReadLine();
+                    t = new Task(ticketID, summary, status, priority, submitter, assigned, watching, projectName, dueDate);
+                    manager = new TicketManager("Tasks.csv");
+                    manager.WriteTickets(t);
+                    break;
+                
+            }
         }
 
     }

@@ -103,32 +103,17 @@ do
     }
     else if (choice == "3")
     {
-        
         Console.WriteLine("Enter search term: ");
         string searchTerm = Console.ReadLine();
 
-        Console.WriteLine("Select file to search (1: Bugs/Defects, 2: Enhancements, 3: Tasks): ");
-        string ticketType = Console.ReadLine();
-        string fileName;
+        TicketManager bugManager = new TicketManager("ticket.csv");
+        TicketManager enhancementManager = new TicketManager("Enhancements.csv");
+        TicketManager taskManager = new TicketManager("Tasks.csv");
 
-        switch (ticketType)
-        {
-            case "1":
-                fileName = "ticket.csv";
-                break;
-            case "2":
-                fileName = "Enhancements.csv";
-                break;
-            case "3":
-                fileName = "Tasks.csv";
-                break;
-            default:
-                Console.WriteLine("Invalid choice.");
-                continue;
-        }
-
-        TicketManager manager = new TicketManager(fileName);
-        List<Ticket> tickets = manager.ReadTickets();
+        List<Ticket> tickets = bugManager.ReadTickets()
+            .Concat(enhancementManager.ReadTickets())
+            .Concat(taskManager.ReadTickets())
+            .ToList();
 
         var results = tickets.Where(t => t.Status.Contains(searchTerm) || t.Priority.Contains(searchTerm) || t.Submitter.Contains(searchTerm)).ToList();
 
@@ -136,6 +121,6 @@ do
         foreach (Ticket t in results)
         {
             Console.WriteLine(t);
-        }      
+        }        
     }
 } while (choice != "4");

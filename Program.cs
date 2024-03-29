@@ -104,7 +104,7 @@ do
     else if (choice == "3")
     {
         Console.WriteLine("Enter search term: ");
-        string searchTerm = Console.ReadLine();
+        string searchTerm = Console.ReadLine().ToLower();
 
         TicketManager bugManager = new TicketManager("ticket.csv");
         TicketManager enhancementManager = new TicketManager("Enhancements.csv");
@@ -115,7 +115,7 @@ do
             .Concat(taskManager.ReadTickets())
             .ToList();
 
-        var results = tickets.Where(t => t.Status.Contains(searchTerm) || t.Priority.Contains(searchTerm) || t.Submitter.Contains(searchTerm)).ToList();
+        var results = tickets.Where(t => t.Status.ToLower().Contains(searchTerm) || t.Priority.ToLower().Contains(searchTerm) || t.Submitter.ToLower().Contains(searchTerm)).ToList();
 
         Console.WriteLine($"Found {results.Count} tickets matching '{searchTerm}':");
         foreach (Ticket t in results)

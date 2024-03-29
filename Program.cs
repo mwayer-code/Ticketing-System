@@ -3,7 +3,8 @@ do
 {
     Console.WriteLine("1. Read data from ticket file.");
     Console.WriteLine("2. Create ticket file from data");
-    Console.WriteLine("3. Exit");
+    Console.WriteLine("3. Search for a ticket");
+    Console.WriteLine("4. Exit");
 
     choice = Console.ReadLine();
 
@@ -100,4 +101,41 @@ do
         }
 
     }
-} while (choice == "1" || choice == "2");
+    else if (choice == "3")
+    {
+        
+        Console.WriteLine("Enter search term: ");
+        string searchTerm = Console.ReadLine();
+
+        Console.WriteLine("Select file to search (1: Bugs/Defects, 2: Enhancements, 3: Tasks): ");
+        string ticketType = Console.ReadLine();
+        string fileName;
+
+        switch (ticketType)
+        {
+            case "1":
+                fileName = "ticket.csv";
+                break;
+            case "2":
+                fileName = "Enhancements.csv";
+                break;
+            case "3":
+                fileName = "Tasks.csv";
+                break;
+            default:
+                Console.WriteLine("Invalid choice.");
+                continue;
+        }
+
+        TicketManager manager = new TicketManager(fileName);
+        List<Ticket> tickets = manager.ReadTickets();
+
+        var results = tickets.Where(t => t.Status.Contains(searchTerm) || t.Priority.Contains(searchTerm) || t.Submitter.Contains(searchTerm)).ToList();
+
+        Console.WriteLine($"Found {results.Count} tickets matching '{searchTerm}':");
+        foreach (Ticket t in results)
+        {
+            Console.WriteLine(t);
+        }      
+    }
+} while (choice != "4");
